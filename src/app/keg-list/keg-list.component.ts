@@ -11,7 +11,7 @@ export class KegListComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.childKegList.push(new Keg('beer', 3.5, 110));
-    this.childKegList.push(new Keg('bear', 3.6, 120));
+    this.childKegList.push(new Keg('"beer"', 3.5, 4));
+    this.childKegList.push(new Keg('Banana in a Box', 8.50, 13));
   }
 }
