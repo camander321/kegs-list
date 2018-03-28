@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Keg } from '../models/keg.model';
 
 @Component({
@@ -8,10 +8,15 @@ import { Keg } from '../models/keg.model';
 })
 export class KegListComponent implements OnInit {
   @Input() childKegList: Keg[];
+  @Output() clickSender = new EventEmitter();
   constructor() {}
 
   ngOnInit() {
     this.childKegList.push(new Keg('"beer"', 3.5, 4));
     this.childKegList.push(new Keg('Banana in a Box', 8.50, 13));
+  }
+
+  kegClicked(kegToEdit: Keg) {
+    this.clickSender.emit(kegToEdit);
   }
 }

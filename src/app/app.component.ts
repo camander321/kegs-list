@@ -9,6 +9,11 @@ import { Keg } from './models/keg.model';
 export class AppComponent {
   title = 'app works!';
   masterKegList: Keg[] = [];
+  selectedKeg: Keg = null;
   constructor() {
+  }
+
+  editKeg(clickedKeg) {
+    this.selectedKeg = clickedKeg;
   }
 }
