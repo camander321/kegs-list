@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { KegListComponent } from './keg-list/keg-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    KegListComponent
   ],
   imports: [
     BrowserModule,
@@ -17,4 +19,4 @@ import { AppComponent } from './app.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
