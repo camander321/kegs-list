@@ -1,3 +1,36 @@
-<ul>
-  <li *ngFor='let keg of childKegList' (click)="kegClicked(keg)">{{keg.name}} {{keg.price}} {{keg.abv}} {{keg.pints}}</li>
-</ul>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      
+      <th>Name</th>
+      <th>Price
+        <span (click)="sortKegs('priceAsc')">⬆</span>
+        <span (click)="sortKegs('priceDesc')">⬇</span>
+      </th>
+      <th>ABV
+        <span (click)="sortKegs('abvAsc')">⬆</span>
+        <span (click)="sortKegs('abvDesc')">⬇</span>
+      </th>
+      <th>Pints Remaining</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let keg of childKegList'>
+      <td (dblclick)="kegClicked(keg)"><span class="name">{{keg.name}}</span></td>
+      <td>{{keg.price}}</td>
+      <td [ngClass]="{
+        'green':keg.abv <= 5,
+        'yellow':keg.abv >= 5 && keg.abv <= 7.5,
+        'red':keg.abv > 7.5
+      }">{{keg.abv}}</td>
+      <td [ngClass]="{
+        'green':keg.pints >= 62,
+        'yellow':keg.pints < 62 && keg.pints >= 31,
+        'red':keg.pints < 31
+      }">{{keg.pints}}</td>
+      <td><button (click)="keg.sellBeer(1)" type="button" class="btn btn-info">Sell Pint</button></td>
+      <td><button (click)="keg.sellBeer(4)" type="button" class="btn btn-info">Sell Growler</button></td>
+    </tr>
+  </tbody>
+</table>

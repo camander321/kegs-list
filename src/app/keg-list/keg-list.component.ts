@@ -19,4 +19,8 @@ export class KegListComponent implements OnInit {
   kegClicked(kegToEdit: Keg) {
     this.clickSender.emit(kegToEdit);
   }
+
+  sortKegs(sort: string){
+    Keg.sortKegs(this.childKegList, sort);
+  }
 }

@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+span.name {
+  cursor: grab;
+}
+
+span.name:active {
+  cursor: grabbing;
+}
+
+.red {
+  color: red;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.green {
+  color: green;
+}
+
+body {
+  height: 100%;
+  background-color: #afafaf;
+}

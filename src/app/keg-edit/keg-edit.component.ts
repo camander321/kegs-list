@@ -10,9 +10,18 @@ export class KegEditComponent implements OnInit {
 
   @Input() selectedKeg: Keg;
   @Output() clickedDone = new EventEmitter();
+  @Output() deleteKeg = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  removeKeg(){
+    this.deleteKeg.emit();
+  }
+
+  doneWitEdit(){
+    this.clickedDone.emit();
   }
 
 }

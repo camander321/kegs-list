@@ -16,4 +16,14 @@ export class AppComponent {
   editKeg(clickedKeg) {
     this.selectedKeg = clickedKeg;
   }
+
+  submitForm(newKeg:Keg){
+    this.masterKegList.push(newKeg);
+  }
+
+  removeKeg(){
+    let index = this.masterKegList.indexOf(this.selectedKeg);
+    this.masterKegList.splice(index, 1);
+    this.selectedKeg = null;
+  }
 }
