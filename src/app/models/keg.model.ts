@@ -11,6 +11,10 @@ export class Keg {
     this.isEmpty = this.pints == 0;
   }
 
+  getPercent() {
+    return Math.floor(this.pints/124*100) + '%';
+  }
+
   static sortKegs(kegs:Keg[], by: string) {
     switch(by) {
     case 'priceAsc':

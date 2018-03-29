@@ -8,18 +8,6 @@ span.name:active {
   cursor: grabbing;
 }
 
-.red {
-  color: red;
-}
-
-.yellow {
-  color: yellow;
-}
-
-.green {
-  color: green;
-}
-
 body {
   height: 100%;
   background-color: #afafaf;

@@ -1,19 +1,25 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Injectable } from '@angular/core';
 import { Keg } from '../models/keg.model';
+import { FirebaseListObservable } from 'angularfire2/database';
+import { KegService } from '../keg.service'
+
 
 @Component({
   selector: 'app-keg-list',
   templateUrl: './keg-list.component.html',
-  styleUrls: ['./keg-list.component.css']
+  styleUrls: ['./keg-list.component.css'],
+  providers: [KegService]
 })
 export class KegListComponent implements OnInit {
-  @Input() childKegList: Keg[];
+  // @Input() childKegList: FirebaseListObservable<any[]>;
   @Output() clickSender = new EventEmitter();
-  constructor() {}
+
+  kegList:FirebaseListObservable<Keg[]>;
+
+  constructor(private kegService: KegService) {}
 
   ngOnInit() {
-    this.childKegList.push(new Keg('"beer"', 3.5, 4));
-    this.childKegList.push(new Keg('Banana in a Box', 8.50, 13));
+    this.kegList = this.kegService.getKegs();
   }
 
   kegClicked(kegToEdit: Keg) {
@@ -21,6 +27,6 @@ export class KegListComponent implements OnInit {
   }
 
   sortKegs(sort: string){
-    Keg.sortKegs(this.childKegList, sort);
+    //Keg.sortKegs(this.childKegList, sort);
   }
 }

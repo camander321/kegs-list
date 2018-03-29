@@ -1,0 +1,13 @@
+{ "kegs": [{
+    "name": "Beer",
+    "price": "3.5",
+    "abv": "4",
+    "pints": "124"
+    },
+    {
+      "name": "Banana in a Box",
+      "price": "8.5",
+      "abv": "13",
+      "pints": "124"
+      }]
+}

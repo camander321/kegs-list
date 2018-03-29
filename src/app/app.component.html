@@ -1,8 +1,7 @@
 <div class="container">
   <app-keg-new (sendKeg)="submitForm($event)"></app-keg-new>
   <hr>
-  <app-keg-list [childKegList]="masterKegList" (clickSender)="editKeg($event)"></app-keg-list>
+  <app-keg-list (clickSender)="editKeg($event)"></app-keg-list>
   <hr>
   <app-keg-edit [selectedKeg]="selectedKeg" (deleteKeg)="removeKeg($event)"></app-keg-edit>
-
 </div>
