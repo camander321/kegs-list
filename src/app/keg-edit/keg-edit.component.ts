@@ -1,27 +1,27 @@
 import { Component, OnInit,  Input, Output, EventEmitter } from '@angular/core';
 import { Keg } from '../models/keg.model'
+import { KegService } from '../keg.service'
 
 @Component({
   selector: 'app-keg-edit',
   templateUrl: './keg-edit.component.html',
-  styleUrls: ['./keg-edit.component.css']
+  styleUrls: ['./keg-edit.component.css'],
+  providers: [KegService]
 })
 export class KegEditComponent implements OnInit {
-
   @Input() selectedKeg: Keg;
-  @Output() clickedDone = new EventEmitter();
-  @Output() deleteKeg = new EventEmitter();
-  constructor() { }
+  constructor(private kegService:KegService) { }
 
   ngOnInit() {
   }
 
   removeKeg(){
-    this.deleteKeg.emit();
+    this.kegService.removeKeg(this.selectedKeg);
+    this.selectedKeg = null;
   }
 
-  doneWitEdit(){
-    this.clickedDone.emit();
+  doneWithEdit(){
+    this.kegService.editKeg(this.selectedKeg);
+    this.selectedKeg = null;
   }
-
 }

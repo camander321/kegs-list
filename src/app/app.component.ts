@@ -8,22 +8,12 @@ import { Keg } from './models/keg.model';
 })
 export class AppComponent {
   title = 'app works!';
-  masterKegList: Keg[] = [];
-  selectedKeg: Keg = null;
+  selectedKeg:Keg = null;
+
   constructor() {
   }
 
-  editKeg(clickedKeg) {
-    this.selectedKeg = clickedKeg;
-  }
-
-  submitForm(newKeg:Keg){
-    this.masterKegList.push(newKeg);
-  }
-
-  removeKeg(){
-    let index = this.masterKegList.indexOf(this.selectedKeg);
-    this.masterKegList.splice(index, 1);
-    this.selectedKeg = null;
+  editKeg(kegToEdit:Keg) {
+    this.selectedKeg = kegToEdit;
   }
 }

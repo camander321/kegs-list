@@ -37,8 +37,9 @@
       }" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': keg.getPercent()}">{{keg.getPercent()}}</div>
       </div>
     </td>
-      <td><button (click)="keg.sellBeer(1)" type="button" class="btn btn-info">Sell Pint</button></td>
-      <td><button (click)="keg.sellBeer(4)" type="button" class="btn btn-info">Sell Growler</button></td>
+      <td><button (click)="sellBeer(keg,1)" type="button" class="btn btn-info">Sell Pint</button></td>
+      <td><button (click)="sellBeer(keg,4)" type="button" class="btn btn-info">Sell Growler</button></td>
+      <td><button (click)="refillKeg(keg)" type="button" class="btn btn-warning">Refill</button></td>
     </tr>
   </tbody>
 </table>

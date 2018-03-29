@@ -1,5 +1,6 @@
 export class Keg {
   pints: number = 124;
+  key:string = '';
   isEmpty: boolean = false;
 
   constructor(public name: string, public price: number, public abv: number) {}
