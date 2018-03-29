@@ -15,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor='let keg of kegList | async'>
+    <tr *ngFor='let keg of kegList'>
       <td (dblclick)="kegClicked(keg)"><span class="name">{{keg.name}}</span></td>
       <td>{{keg.price}}</td>
       <td [ngClass]="{
@@ -28,14 +28,14 @@
         'yellow':keg.pints < 62 && keg.pints >= 31,
         'red':keg.pints < 31
       }">
-      <!-- <div class="progress" style="background-color: lightgrey">
+      <div class="progress" style="background-color: lightgrey">
         <div [ngClass]="{
           'progress-bar':true, 'progress-bar-striped':true, 'active':true, 'progress-bar-warning':true,
           'progress-bar-success':keg.pints > 62,
           'progress-bar-warning':keg.pints <= 62 && keg.pints > 31,
           'progress-bar-danger':keg.pints <= 31
       }" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': keg.getPercent()}">{{keg.getPercent()}}</div>
-      </div> -->
+      </div>
     </td>
       <td><button (click)="keg.sellBeer(1)" type="button" class="btn btn-info">Sell Pint</button></td>
       <td><button (click)="keg.sellBeer(4)" type="button" class="btn btn-info">Sell Growler</button></td>

@@ -14,12 +14,19 @@ export class KegListComponent implements OnInit {
   // @Input() childKegList: FirebaseListObservable<any[]>;
   @Output() clickSender = new EventEmitter();
 
-  kegList:FirebaseListObservable<Keg[]>;
+  kegList:Keg[] = [];
 
   constructor(private kegService: KegService) {}
 
   ngOnInit() {
-    this.kegList = this.kegService.getKegs();
+    this.kegService.getKegs().subscribe((dataArray) => {
+      dataArray.forEach((data) => {
+        let newKeg:Keg = new Keg(data.name, data.price, data.abv);
+        newKeg.pints = data.pints;
+        this.kegList.push(newKeg);
+
+      });
+    });
   }
 
   kegClicked(kegToEdit: Keg) {
@@ -27,6 +34,6 @@ export class KegListComponent implements OnInit {
   }
 
   sortKegs(sort: string){
-    //Keg.sortKegs(this.childKegList, sort);
+    Keg.sortKegs(this.kegList, sort);
   }
 }
